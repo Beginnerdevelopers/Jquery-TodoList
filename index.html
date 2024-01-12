@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery LIst</title>
+<link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.css">
+<link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.structure.css">
+<!-- <link rel="stylesheet" href="./jquery-ui-1.13.2/jquery-ui.theme.css"> -->
+<link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.theme.css">
+</head>
+<style>
+    body{
+        background-color: #504f4f;
+        margin-top: 150px;
+
+    }
+    .container{
+        padding: 20px;
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 40px;
+        background-color: white;
+        border-radius: 25px;
+        box-shadow: 5px 5px 15px 3px rgb(202, 241, 239);
+    }
+    form{
+        display: inline-block;
+    }
+    input{
+        padding: 4px 15px 4px 5px;
+
+    }
+    #button{
+        display: inline-block;
+        background-color: blue;
+        color: #eee;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 2px;
+        padding: 5px 15px;
+
+    }
+    #button{
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    ul{
+        padding-left: 20px;
+        font-weight: bolder;
+    }
+    ul li{padding: 5px;
+    color: black;
+    font-weight: bold;
+
+    
+    }
+ul li:nth-child(even){
+    background-color: gray;
+    
+}
+.strike{
+    text-decoration: line-through;
+
+}
+li:hover{
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="container">
+        <h2>To-Do-list</h2>
+        <p><i>Double click to delete item</i></p>
+        <form action="" name="todolist">
+            <input type="text" name="listItem">
+
+        </form>
+        <div id="button">
+            Add
+
+        </div>
+        <ul></ul>
+    </div>
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script src="./jquery-ui-1.13.2/jquery-ui.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#button").click(function(){
+        let toAdd=   $('input[name=listItem]').val()
+     $("ul").append('<li>'+toAdd+'</li>')
+    })
+    $(document).on('dblclick','li',function(){
+        // $(this).remove();
+        $(this).toggleClass('strike').fadeOut('slow')
+    })
+    $('input').focus(function(){
+        $(this).val()
+    })
+    $('ul').sortable()
+    })
+</script>
+</html>
